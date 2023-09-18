@@ -52,8 +52,9 @@ BOOK NOW
                   <p className="text-md  font-semibold mt-2 font-poppins">
                     Total rate per person based on double room
                   </p>
-                  {hotels.map((e) => (
-                    <p className="text-md font-semibold font-poppins">{e}</p>
+                  {hotels.map((e,index) => (
+
+                    <p key={index} className="text-md font-semibold font-poppins">{e}</p>
                   ))}
                 </div>
               </ModalBody>

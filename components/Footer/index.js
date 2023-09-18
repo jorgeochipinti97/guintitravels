@@ -22,7 +22,7 @@ const [sectionOpen, setSectionOpen] = useState('')
   };
 
   const repeatedDivs = new Array(5).fill(null).map((_, index) => (
-    <Card isBlurred className="mx-2">
+    <Card isBlurred className="mx-2" key={index}>
       <Image
         alt="Woman listing to music"
         className="object-cover"

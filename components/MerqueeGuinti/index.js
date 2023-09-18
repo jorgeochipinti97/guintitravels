@@ -6,7 +6,7 @@ export const MerqueeGuinti = ({backgroundColor,textColor,direction ,text}) => {
   const repeatedDivs = new Array(32)
     .fill(null)
     .map((_, index) => (
-      <p className={`font-poppins text-2xl  mx-2 text-${textColor}`}>
+      <p className={`font-poppins text-2xl  mx-2 text-${textColor}`} key={index}>
        {text}
       </p>
     ));

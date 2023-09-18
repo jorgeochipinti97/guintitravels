@@ -18,7 +18,7 @@ export const ModalFooter = ({ typeOfModal, onModalClose }) => {
               America, you probably will not need a visa to enter the country
               for tourist purposes. In any case, check the immigration official
               website where you will find the visa policy worldwide to know your
-              country's specific case.
+              country s specific case.
             </AccordionItem>
             <AccordionItem
               key="2"
@@ -35,8 +35,8 @@ export const ModalFooter = ({ typeOfModal, onModalClose }) => {
             </AccordionItem>
             <AccordionItem
               key="3"
-              aria-label="MONEY: WHAT IS ARGENTINA'S CURRENCY?"
-              title="MONEY: WHAT IS ARGENTINA'S CURRENCY?"
+              aria-label="MONEY: WHAT IS ARGENTINA S CURRENCY?"
+              title="MONEY: WHAT IS ARGENTINA S CURRENCY?"
               className="font-poppins text-xs "
             >
               The Argentine peso is the currency unit for the country. You can
@@ -45,7 +45,7 @@ export const ModalFooter = ({ typeOfModal, onModalClose }) => {
               throughout the country. And the best thing about it? Amazing
               landscapes, unique gastronomy, strategic accommodations with the
               best services, safe and accessible transport, and a favourable
-              exchange rate. Here's a fact: a bus, underground or train ticket
+              exchange rate. Here is a fact: a bus, underground or train ticket
               costs only 30 cents, a good quality wine in the supermarket costs
               3 dollars, and eating the freshest crab on earth costs only 10
               dollars.
@@ -158,13 +158,13 @@ export const ModalFooter = ({ typeOfModal, onModalClose }) => {
               Terms and Conditions for Guinti Travel
             </p>
             <p className="text-xs mt-2">
-              Access to and/or use of "www.guinti.com" requires all visitors and
+              Access to and/or use of www.guinti.com requires all visitors and
               users to adhere to the terms and conditions, accepting them from
               the moment of entry, fully and without reservation. Furthermore,
               in the event that these terms and conditions may be modified,
               supplemented, or replaced in any way in relation to the services
               and contents of the Site in the future, it is clarified that by
-              the mere act of entering and using the Site, the 'user'
+              the mere act of entering and using the Site, the user
               immediately adheres to each and every one of the following terms
               and conditions. Therefore, the user should carefully read the
               terms and conditions before accessing and/or using any portal
@@ -178,7 +178,7 @@ export const ModalFooter = ({ typeOfModal, onModalClose }) => {
                   className="font-poppins text-xs "
                 >
                   These terms and conditions apply to the digital assets listed
-                  below: 'www.guinti.com'
+                  below: www.guinti.com
                 </AccordionItem>
                 <AccordionItem
                   key="2"
@@ -272,7 +272,7 @@ export const ModalFooter = ({ typeOfModal, onModalClose }) => {
                 This Privacy Policy sets out the terms of use and protection of
                 information provided by our users when using the Guinti Travel
                 website. At Guinti Travel, we are committed to the security of
-                our users' data. When requested to complete certain fields of
+                our users data. When requested to complete certain fields of
                 personal information that can identify you, rest assured that it
                 will only be used in accordance with the terms of this document.
                 However, this Privacy Policy may change over time or be updated,

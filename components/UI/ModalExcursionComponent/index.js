@@ -77,9 +77,9 @@ export const ModalExcursionComponent = ({ name, video }) => {
                   landscape is dominated by the yellow hues of Coiron grass.
                   <br />
                   Upon passing the entrance to the National Park, we enter the
-                  Andean-Patagonian Forest, where you'll observe species such as
+                  Andean-Patagonian Forest, where you will observe species such as
                   ñires, guindos, and lengas, among others. Once at the glacier,
-                  you'll behold the majesty that captivates visitors' eyes.
+                  you will behold the majesty that captivates visitors eyes.
                   After recovering from the amazement, we will begin the walk on
                   walkways and balconies to enjoy different views of the glacier
                   s front.
@@ -104,11 +104,11 @@ export const ModalExcursionComponent = ({ name, video }) => {
                   1-Hour Navigation along the South Wall of Perito Moreno
                   Glacier.
                   <br />
-                  The excursion begins at the "Bajo de las Sombras" port,
+                  The excursion begins at the <span style={{fontStyle:'italic'}}>Bajo de las Sombras</span> port,
                   located on Route 11, Km 70.9, an hour and a half from El
                   Calafate and only 7km from the glacier. Passengers should make
                   their way to the port, where they will embark to sail on Lake
-                  Rico. Here, you'll have the opportunity to appreciate the
+                  Rico. Here, you will have the opportunity to appreciate the
                   impressive ice wall of the Perito Moreno Glacier and the
                   icebergs that originate from it.
                   <br />
@@ -121,7 +121,7 @@ export const ModalExcursionComponent = ({ name, video }) => {
                   At 400 meters from the south wall of the Perito Moreno
                   Glacier, the boat stops for a few minutes to allow for a
                   closer and more detailed observation of the landscape. It
-                  doesn't get any closer to the breaking wall than this!
+                  does not get any closer to the breaking wall than this!
                   <br />
                   The Nautical Safari is suitable for all ages and can be
                   enjoyed 365 days a year.
@@ -206,9 +206,9 @@ export const ModalExcursionComponent = ({ name, video }) => {
                   Embark on an exciting wine adventure in the beautiful region
                   of Mendoza. Our tours will take you to explore the
                   world-renowned wineries and vineyards of this land of wine
-                  tradition. Guided by wine experts, you'll immerse yourself in
+                  tradition. Guided by wine experts, you will immerse yourself in
                   wine culture, learn about the production process, and savor
-                  some of Argentina's most exquisite wines.
+                  some of Argentina s most exquisite wines.
                   <br />
                   Stroll through the vineyards, marvel at the mountain
                   landscapes surrounding the estates, and uncover the secrets of
@@ -231,19 +231,19 @@ export const ModalExcursionComponent = ({ name, video }) => {
                     UNESCO World Heritage Site
                   </span>
                   , where the landscape and the colors of the hills blend with
-                  the equally colorful cultures that inhabit this region. It's a
+                  the equally colorful cultures that inhabit this region. It is a
                   journey of social connection and a glimpse into the ancestral.
                   It begins with arrival in the little village of Purmamarca to
                   observe the Hill of Seven Colors. Passing through the Posta de
                   Hornillos, continuing on to the town of Tilcara. Continuing
                   towards Huacalera, crossing the Tropic of Capricorn, from
-                  where you can see the colors of the hill called "La Pollera de
-                  la Colla." Visit to the Church of Uquía, where the paintings
+                  where you can see the colors of the hill called <span style={{fontStyle:'italic'}}>La Pollera de
+                  la Colla</span>. Visit to the Church of Uquía, where the paintings
                   of the Archangel Warriors are found (an important vestige in
                   the Cuzco school of art). Arrival in Humahuaca with its
                   significant Cathedral and the Monument to Independence (El
                   Indio) by sculptor Soto Avendaño. Return after lunch to
-                  observe from the road the "Painter's Palette" that frames the
+                  observe from the road the <span style={{fontStyle:'italic'}}>Painter s Palette</span> that frames the
                   town of Maimara. Arrival in San Salvador de Jujuy. Return to
                   Salta.
                 </p>
@@ -257,7 +257,7 @@ export const ModalExcursionComponent = ({ name, video }) => {
                   the Church, and the Craft Market in the square. After
                   exploring the town, you ascend through the Cuesta de Lipán to
                   reach the impressive Salinas Grandes, one of the most visited
-                  destinations in the Puna de Jujuy region. It's an incredible
+                  destinations in the Puna de Jujuy region. It is an incredible
                   place where the white landscape blends with the intense blue
                   sky, and you can observe the process of table salt extraction.
                   Return to Salta along the same route.
@@ -353,7 +353,7 @@ export const ModalExcursionComponent = ({ name, video }) => {
             {name.toLowerCase().includes("iguaçu") && (
               <>
                 <p className="font-poppins text-justify text-md mt-2">
-                  Prepare to be spellbound by the sheer magnificence of Brazil's
+                  Prepare to be spellbound by the sheer magnificence of Brazil s
                   Foz do Iguaçu National Park, home to the mesmerizing Iguazu
                   Falls. Feel the earth tremble beneath your feet as you stand
                   at the edge of this thunderous natural wonder, surrounded by
@@ -368,12 +368,12 @@ export const ModalExcursionComponent = ({ name, video }) => {
               <>
                 <p className="font-poppins text-justify text-xs mt-2">
                   Experience the breathtaking power of nature at its most
-                  awe-inspiring with our guided tours to the Devil's Throat, the
+                  awe-inspiring with our guided tours to the Devil s Throat, the
                   heart-pounding centerpiece of the majestic Iguazu Falls. Get
                   ready to be mesmerized as you stand on the edge of this
                   thundering abyss, feeling the mist on your face and the
                   adrenaline in your veins. Join us on an adventure of a
-                  lifetime and let the Devil's Throat steal your heart
+                  lifetime and let the Devil s Throat steal your heart
                 </p>
               </>
             )}
@@ -385,10 +385,10 @@ export const ModalExcursionComponent = ({ name, video }) => {
                   Tierra del Fuego. Immerse yourself in the untamed beauty of
                   the southernmost city in the world as you explore its
                   breathtaking landscapes, from rugged peaks to serene
-                  lakeshores. Whether you're a seasoned hiker or a first-time
+                  lakeshores. Whether you are a seasoned hiker or a first-time
                   explorer, our guided tours will ignite your spirit and leave
                   you with memories to cherish forever. Join us and discover the
-                  wild heart of Ushuaia, the capital of adventure in Argentina's
+                  wild heart of Ushuaia, the capital of adventure in Argentina s
                   Tierra del Fuego.
                 </p>
               </>
@@ -429,7 +429,7 @@ export const ModalExcursionComponent = ({ name, video }) => {
                   call of adventure, this is where your wildest dreams come to
                   life. From the windswept peaks to the serene lakeshores, every
                   step here is a discovery waiting to happen. Join us in this
-                  untamed paradise and ignite your spirit in the Land of Fire."
+                  untamed paradise and ignite your spirit in the Land of Fire
                 </p>
               </>
             )}
