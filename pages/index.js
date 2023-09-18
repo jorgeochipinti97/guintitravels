@@ -69,7 +69,7 @@ export default function Home() {
               },
               {
                 name: "High mountain",
-                image: "altamontaña.jpg",
+                image: "altamontana.jpg",
                 video:
                   "https://www.youtube.com/watch?v=EplA2Qj5AiI&ab_channel=ConociendoLugares",
               },
