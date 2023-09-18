@@ -1,10 +1,10 @@
 import Head from "next/head";
-import { Suspense, lazy, useRef } from "react";
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 
-import { gsap } from "gsap";
+import { Power1, gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-import { Button, Image } from "@nextui-org/react";
+import { Button, Image, Progress } from "@nextui-org/react";
 
 import { FooterComponent } from "@/components/Footer";
 
@@ -18,6 +18,30 @@ import build from "../animations/build.json";
 import Lottie from "lottie-react";
 
 export default function Home() {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setValue((v) => {
+        if (v >= 100) {
+          gsap.to(".intro", {
+            yPercent: -1000,
+            duration: 1,
+            ease: Power1.easeIn,
+          });
+          gsap.to(".intro", {
+
+            delay: 1.2,
+display:'none'
+          });
+          clearInterval(interval);
+        } else {
+          return v + 10;
+        }
+      });
+    }, 500);
+  }, []);
+
   gsap.registerPlugin(ScrollTrigger);
   const elementoRef = useRef(null);
 
@@ -36,14 +60,35 @@ export default function Home() {
         </div>
         <p className="text-center font-poppins">
           We are hard at work to bring you an amazing online experience. Please
-          bear with us as we make improvements to our website.<br/> Stay tuned for
-          exciting updates, and thank you for your patience!
+          bear with us as we make improvements to our website.
+          <br /> Stay tuned for exciting updates, and thank you for your
+          patience!
         </p>
       </div>
 
       <div className="hidden md:block">
+        <div
+        className="intro"
+          style={{
+            position: "fixed",
+            backgroundColor: "white",
+            height: "100vh",
+            width: "100vw",
+            zIndex: 100,
+          }}
+        >
+          <div className="flex justify-center flex-col items-center">
+            <Image src="/guinti.svg" alt="logo" />
+            <Progress
+              size="md"
+              value={value}
+              color="secondary"
+              showValueLabel={true}
+              className="max-w-md"
+            />
+          </div>
+        </div>
         <One scrollToElement={scrollToElement} />
-
         <Two />
         <div ref={elementoRef}>
           <PaqueteComponent

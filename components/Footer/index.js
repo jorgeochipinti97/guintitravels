@@ -42,7 +42,13 @@ const [sectionOpen, setSectionOpen] = useState('')
         </ModalBody>
       </Modal>
 
-      <div className=" bg-black snap-start">
+      <div className=" bg-black snap-start py-2">
+        <MerqueeGuinti
+          backgroundColor={"black"}
+          textColor={"white"}
+          direction={"left"}
+          text={"🌍✈️ FOLLOW US ON @GUINTITRAVEL 🌴📸 · #GUINTITRAVEL ✈️🌍·"}
+        />
         <Marquee
           direction="right"
           style={{ overflow: "hidden" }}
@@ -51,12 +57,6 @@ const [sectionOpen, setSectionOpen] = useState('')
         >
           {repeatedDivs}
         </Marquee>
-        <MerqueeGuinti
-          backgroundColor={"black"}
-          textColor={"white"}
-          direction={"left"}
-          text={"🌍✈️ FOLLOW US ON @GUINTITRAVEL 🌴📸 · #GUINTITRAVEL ✈️🌍·"}
-        />
       </div>
       <div
         style={{
