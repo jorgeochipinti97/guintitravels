@@ -24,7 +24,8 @@ export const PaqueteComponent = ({
     inView &&
       gsap.to(`.${backgroundImage}`, {
         backgroundImage: `linear-gradient(to bottom, transparent 40%, black),linear-gradient(to bottom,rgba(0,0,0,0.8),rgba(0, 0, 0, 0.1)), url('/${backgroundImage}.jpg')`,
-        ease: Power1.easeIn,duration:.5
+        ease: Power1.easeIn,
+        duration: 0.5,
       });
     inView &&
       gsap.to(refOpacity.current, {
@@ -43,7 +44,7 @@ export const PaqueteComponent = ({
           backgroundImage: ` url('/${backgroundImage}.jpg')`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          height: isMobile ? "auto" : "100vh",
+          // height: isMobile ? "auto" : "100vh",
           scrollSnapAlign: "start",
           width: "100vw",
         }}
@@ -66,7 +67,8 @@ export const PaqueteComponent = ({
               className={`font-poppins  uppercase mt-2`}
               ref={refOpacity}
             >
-              {name}<br style={{display:isMobile ? "block":'none'}}/>
+              {name}
+              <br style={{ display: isMobile ? "block" : "none" }} />
               <span className="mx-2" style={{ fontWeight: "100" }}>
                 From
               </span>
@@ -102,8 +104,6 @@ export const PaqueteComponent = ({
                 style={{
                   fontWeight: "400",
                   fontSize: isMobile ? "12px" : "20px",
-
-
                 }}
               >
                 {phraseOne}
@@ -122,6 +122,11 @@ export const PaqueteComponent = ({
             itinerary={itinerary}
             hotels={hotels}
           />
+        </div>
+        <div className="flex justify-center ">
+          <div className="flex justify-center bg-white rounded-full p-2" style={{width:isMobile? '98vw':'50vw',marginTop:'30px', }}>
+            <img src="/stripe.webp" alt="" />
+          </div>
         </div>
       </div>
     </>
