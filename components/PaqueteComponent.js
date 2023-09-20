@@ -40,7 +40,7 @@ export const PaqueteComponent = ({
         className={backgroundImage}
         ref={ref}
         style={{
-          backgroundImage: ` url('/${backgroundImage}')`,
+          backgroundImage: ` url('/${backgroundImage}.jpg')`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           height: isMobile ? "auto" : "100vh",
