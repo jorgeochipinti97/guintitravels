@@ -24,7 +24,7 @@ export const PaqueteComponent = ({
     inView &&
       gsap.to(`.${backgroundImage}`, {
         backgroundImage: `linear-gradient(to bottom, transparent 40%, black),linear-gradient(to bottom,rgba(0,0,0,0.8),rgba(0, 0, 0, 0.1)), url('/${backgroundImage}.jpg')`,
-        // ease: Power1.easeIn,
+        ease: Power1.easeIn,duration:.5
       });
     inView &&
       gsap.to(refOpacity.current, {
