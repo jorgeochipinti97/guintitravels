@@ -1,7 +1,9 @@
+import useIsMobile from "@/hooks/useIsMobile";
 import { Button, Input } from "@nextui-org/react";
 import React from "react";
 
 export const FormPlanTrip = () => {
+  const isMobile = useIsMobile()
   return (
     <section>
       <form>
@@ -21,7 +23,7 @@ export const FormPlanTrip = () => {
           <Input type="text" label="Cellphone" color="secondary" />
         </div>
         <div className="mt-2">
-          <Input type="date"  color="secondary" />
+          <Input type="date"  color="secondary"  label={isMobile ? 'Departure day': ''}/>
         </div>
         <div className="mt-2">
           <Input type="text"  label='Number of adults' color="secondary" />

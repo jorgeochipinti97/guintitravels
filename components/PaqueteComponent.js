@@ -1,13 +1,9 @@
-import { Card, CardFooter, Image } from "@nextui-org/react";
 import { ButtonGroupComponent } from "./UI/ButtonGroupComponent";
-import { ModalExcursionComponent } from "./UI/ModalExcursionComponent";
-import ReactPlayer from "react-player/youtube";
-import { MerqueeGuinti } from "./MerqueeGuinti";
-import Marquee from "react-fast-marquee";
-
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import gsap, { Power1 } from "gsap";
+import useIsMobile from "@/hooks/useIsMobile";
+import { ExcursionComponent } from "./ExcursionComponent";
 
 export const PaqueteComponent = ({
   name,
@@ -20,9 +16,8 @@ export const PaqueteComponent = ({
   phraseOne,
   calltoAction,
 }) => {
-  const [ref, inView] = useInView({
-    threshold: 0.7,
-  });
+  const isMobile = useIsMobile();
+  const [ref, inView] = useInView();
   const refOpacity = useRef();
 
   useEffect(() => {
@@ -43,11 +38,12 @@ export const PaqueteComponent = ({
     <>
       <div
         className={backgroundImage}
+        ref={ref}
         style={{
-          backgroundImage: ` url('/${backgroundImage}.jpg')`,
+          backgroundImage: ` url('/${backgroundImage}')`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          height: "100vh",
+          height: isMobile ? "auto" : "100vh",
           scrollSnapAlign: "start",
           width: "100vw",
         }}
@@ -60,11 +56,17 @@ export const PaqueteComponent = ({
         >
           <div className="flex justify-center items-center px-2 pt-4  pb-4">
             <p
-              style={{ fontWeight: "800", color: "#f5f5f7 ", opacity: 0 }}
-              className={`font-poppins text-5xl uppercase mt-2`}
+              style={{
+                fontWeight: "800",
+                color: "#f5f5f7 ",
+                opacity: 0,
+                fontSize: isMobile ? "30px" : "40px",
+                textAlign: "center",
+              }}
+              className={`font-poppins  uppercase mt-2`}
               ref={refOpacity}
             >
-              {name}
+              {name}<br style={{display:isMobile ? "block":'none'}}/>
               <span className="mx-2" style={{ fontWeight: "100" }}>
                 From
               </span>
@@ -76,47 +78,15 @@ export const PaqueteComponent = ({
         </div>
 
         <div className="grid grid-cols-3 pb-2"></div>
-        <div className="w-screen flex justify-around items-center flex-wrap ">
+        <div className="w-screen flex justify-around items-around flex-wrap ">
           {excursiones.map((e) => (
             <>
-              <div
-                style={{
-                  width: "300px",
-                  margin: 1,
-                  maxHeight: "500px",
-                  borderRadius: "30px",
-                }}
-                ref={ref}
-                className={inView ? `shadowCard excursion` : ""}
-              >
-                <Card
-                  isFooterBlurred
-                  radius="lg"
-                  className="border-none"
-                  style={{ width: "300px" }}
-                >
-                  <Image
-                    isZoomed
-                    loading="lazy"
-                    alt="excursion"
-                    className="object-cover"
-                    src={`/${e.image}`}
-                  />
-                  <CardFooter className="justify-between bg-black/50 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-                    <p className="font-poppins text-white font-regular text-center">
-                      {e.name}
-                    </p>
-                    <div className="my-2 flex justify-center mx-2">
-                      <ModalExcursionComponent name={e.name} video={e.video} />
-                    </div>
-                  </CardFooter>
-                </Card>
-              </div>
+              <ExcursionComponent e={e} />
             </>
           ))}
         </div>
 
-        <div className="flex justify-center w-screen mt-16">
+        <div className="flex justify-center w-screen md:mt-16">
           <div
             style={{
               justifySelf: "center",
@@ -128,8 +98,13 @@ export const PaqueteComponent = ({
               style={{ color: "#f5f5f7", textAlign: "center" }}
             >
               <p
-                className={"font-poppins  text-xl"}
-                style={{ fontWeight: "400" }}
+                className={"font-poppins"}
+                style={{
+                  fontWeight: "400",
+                  fontSize: isMobile ? "12px" : "20px",
+
+
+                }}
               >
                 {phraseOne}
 

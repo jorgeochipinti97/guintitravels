@@ -3,16 +3,16 @@ import { Button, ModalBody, ModalHeader } from "@nextui-org/react";
 import { Modal, ModalContent, useDisclosure } from "@nextui-org/react";
 import ReactPlayer from "react-player";
 export const ModalExcursionComponent = ({ name, video }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose,onOpenChange } = useDisclosure();
 
   const handleOpen = () => {
     onOpen();
   };
   return (
     <>
-      <Modal backdrop={"opaque"} isOpen={isOpen} onClose={onClose}>
-        <ModalBody className="flex flex-col justify-center items-start">
-          <ModalContent className="px-10 py-2">
+      <Modal backdrop={"opaque"} isOpen={isOpen} onClose={onClose} scrollBehavior='outside' onOpenChange={onOpenChange}  size="2xl">
+        <ModalBody className="flex flex-col justify-center items-start" onsc>
+          <ModalContent className="px-10 py-2 bg-white">
             {" "}
             <p
               className="text-xl font-poppins my-4"
@@ -31,7 +31,7 @@ export const ModalExcursionComponent = ({ name, video }) => {
             </div>
             {name.toLowerCase() == "minitrekking" && (
               <>
-                <p className="font-poppins text-justify text-sm mt-2">
+                <p className="font-poppins text-justify text-xs  mt-2">
                   The excursion begins at the{" "}
                   <span style={{ fontStyle: "italic" }}>
                     Bajo de las Sombras

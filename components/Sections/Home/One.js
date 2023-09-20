@@ -15,8 +15,11 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { AboutArgentina } from "@/components/UI/AboutArgentina";
+import useIsMobile from "@/hooks/useIsMobile";
 
-const One = ({scrollToElement}) => {
+const One = ({ scrollToElement }) => {
+  const isMobile = useIsMobile();
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [modalOpen, setModalOpen] = useState();
 
@@ -110,14 +113,14 @@ const One = ({scrollToElement}) => {
         </ModalBody>
       </Modal>
       <div
-        className="snap-start h-screen w-screen bg-white flex justify-center items-center flex-col "
+        className=" snap-start h-screen w-screen bg-white flex justify-center items-center flex-col "
         id="video"
         style={{
           backgroundImage: `linear-gradient(
             to bottom,
 transparent 70%,
 rgba(0,0,0,0.9)
-          ),url('/background.jpg')`,
+          ),url(${isMobile ? "backgroundmobileone.png" : "/background.jpg"})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           height: "100vh",
@@ -130,19 +133,21 @@ rgba(0,0,0,0.9)
             alignItems: "start",
             justifySelf: "start",
             position: "relative",
-            bottom: 70,
+            bottom: isMobile ? 15 : 70,
           }}
         >
           <Image
             src="/guinti.svg"
             alt=""
             width={300}
-            height={300}
             loading="eager"
             style={{ position: "relative", bottom: 50 }}
           />
 
-          <ButtonGroup className="m-5">
+          <ButtonGroup
+            className="m-5"
+            style={{ display: isMobile ? "none" : "auto" }}
+          >
             <Button
               color="default"
               className=" bg-white hover:bg-secondary  hover:text-white text-xs"
@@ -166,7 +171,7 @@ rgba(0,0,0,0.9)
             </Button>
           </ButtonGroup>
         </div>
-        <div className="mt-20 w-screen">
+        <div className="mt-20 xs:mt-10 w-screen">
           <Marquee
             direction="right"
             style={{ overflow: "hidden" }}
@@ -380,10 +385,13 @@ rgba(0,0,0,0.9)
             </p>
           </Marquee>
         </div>
-        <div className="mt-28 w-screen flex justify-center flex-col items-center">
+        <div
+          style={{ marginTop: isMobile ? "2rem" : "7rem" }}
+          className=" w-screen flex justify-center flex-col items-center"
+        >
           <p className="text-white text-xl font-light">Welcome to Argentina</p>
           <p className="text-white text-xs font-light">Travel Packages 2023</p>
-          <div style={{ width: "5%" }}>
+          <div style={{ width: isMobile ? "20%" : "5%" }}>
             <Lottie animationData={arrow} loop={true} />
           </div>
         </div>

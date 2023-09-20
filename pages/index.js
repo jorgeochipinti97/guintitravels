@@ -23,23 +23,23 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setValue((v) => {
+
         if (v >= 100) {
           gsap.to(".intro", {
-            yPercent: -1000,
-            duration: 1,
+            opacity: 0,
+            duration: .5,
             ease: Power1.easeIn,
           });
           gsap.to(".intro", {
-
-            delay: 1.2,
-display:'none'
+            delay: 1,
+            display: "none",
           });
           clearInterval(interval);
         } else {
           return v + 10;
         }
       });
-    }, 500);
+    }, 350);
   }, []);
 
   gsap.registerPlugin(ScrollTrigger);
@@ -53,7 +53,7 @@ display:'none'
 
   return (
     <Layout>
-      <div className=" sm:block md:hidden lg:hidden xl:hidden 2xl:hidden">
+      {/* <div className=" sm:block md:hidden lg:hidden xl:hidden 2xl:hidden">
         <Image src="/guinti.svg" alt="" />
         <div style={{ width: "100%" }}>
           <Lottie animationData={build} loop={true} />
@@ -64,11 +64,11 @@ display:'none'
           <br /> Stay tuned for exciting updates, and thank you for your
           patience!
         </p>
-      </div>
+      </div> */}
 
-      <div className="hidden md:block">
+      <div className="">
         <div
-        className="intro"
+          className="intro"
           style={{
             position: "fixed",
             backgroundColor: "white",
@@ -83,7 +83,7 @@ display:'none'
               size="md"
               value={value}
               color="secondary"
-              showValueLabel={true}
+              // showValueLabel={true}
               className="max-w-md"
             />
           </div>
@@ -235,6 +235,7 @@ display:'none'
           }
           name={"Salta, Argentina"}
           price={955}
+          // backgroundMobile={'backgroundmobilesalta.png'}
           backgroundImage={"saltabackground"}
           excursiones={[
             {

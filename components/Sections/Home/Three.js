@@ -8,13 +8,14 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { FormPlanTrip } from "@/components/UI/formPlanTrip";
+import useIsMobile from "@/hooks/useIsMobile";
 
 export const Three = () => {
-  const { isOpen, onOpen,onClose } = useDisclosure();
-
+  const { isOpen, onOpen,onClose,onOpenChange } = useDisclosure();
+const isMobile = useIsMobile()
   return (
     <>
-      <Modal backdrop={"opaque"} isOpen={isOpen} onClose={onClose}>
+      <Modal backdrop={"opaque"} isOpen={isOpen} onClose={onClose} scrollBehavior="outside" onOpenChange={onOpenChange}>
         <ModalBody className="flex flex-col justify-center items-start">
           <ModalContent className="px-10 py-2">
             <FormPlanTrip />
@@ -28,7 +29,7 @@ export const Three = () => {
         }}
       >
         <div>
-          <p className="text-4xl px-4 mb-9 mt-9 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-yellow-50">
+          <p style={{marginTop:isMobile ? 2:'50px'}} className="text-4xl px-4 mb-9  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-yellow-50">
             Discover Argentina with us and turn your travel dreams into reality.
           </p>
         </div>
@@ -38,18 +39,19 @@ export const Three = () => {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             borderRadius: "19px",
-            width: "60%",
-            height: "60%",
+            width: isMobile ? '100%':"60%",
+            height: isMobile ? '100%':"60%",
+
           }}
         />
 
-        <p className="text-white mt-9 text-xl">
+        <p className="text-white mt-9 " style={{            textAlign:'center',lineHeight:'12px'}}>
           You have the flexibility to{" "}
-          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-sky-500 text-2xl">
+          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-sky-500 text-xl">
             combine
           </span>{" "}
           any of the previous packages to suit your preferences or{" "}
-          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-sky-500 text-2xl">
+          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-sky-500 text-xl">
             design
           </span>{" "}
           your own customized journey.

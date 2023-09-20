@@ -12,12 +12,14 @@ import { Card, Divider, Image, Link } from "@nextui-org/react";
 import Marquee from "react-fast-marquee";
 import { MerqueeGuinti } from "../MerqueeGuinti";
 import { ModalFooter } from "../UI/ModalFooter";
+import useIsMobile from "@/hooks/useIsMobile";
 
 export const FooterComponent = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-const [sectionOpen, setSectionOpen] = useState('')
+  const isMobile = useIsMobile()
+  const { isOpen, onOpen, onClose,onOpenChange } = useDisclosure();
+  const [sectionOpen, setSectionOpen] = useState("");
   const handleOpen = (value) => {
-    setSectionOpen(value)
+    setSectionOpen(value);
     onOpen();
   };
 
@@ -34,10 +36,10 @@ const [sectionOpen, setSectionOpen] = useState('')
   ));
   return (
     <>
-      <Modal backdrop={"opaque"} isOpen={isOpen} onClose={onClose}>
+      <Modal backdrop={"opaque"} isOpen={isOpen} onClose={onClose} scrollBehavior="outside" onOpenChange={onOpenChange}>
         <ModalBody className="flex flex-col justify-center items-start">
           <ModalContent className="px-10 py-2">
-            <ModalFooter typeOfModal={sectionOpen} onModalClose={onClose}/>
+            <ModalFooter typeOfModal={sectionOpen} onModalClose={onClose} />
           </ModalContent>
         </ModalBody>
       </Modal>
@@ -62,7 +64,7 @@ const [sectionOpen, setSectionOpen] = useState('')
         style={{
           background:
             "linear-gradient(192deg, #540CEC 44.2%, rgba(12, 196, 236, 0.90) 100%)",
-          height: "75vh",
+
         }}
         className="flex justify-around pt-2 items-center flex-col"
       >
@@ -73,18 +75,18 @@ const [sectionOpen, setSectionOpen] = useState('')
           style={{
             background:
               "linear-gradient(16deg, #540CEC 44.2%, rgba(12, 196, 236, 0.90) 100%)",
-            border: "2px solid #FFF",
 
-            width: "50%",
-            height: "30%",
+
+            width: isMobile ?'90%' :"50%",
+            height:isMobile ?'content-fit' : "30%",
             borderRadius: "20px",
           }}
         >
           <div
-            className="flex justify-around items-start  "
+            // className="flex justify-around items-start  "
             style={{ height: "100%" }}
           >
-            <div className="flex items-start justify-center flex-col ">
+            <div className="flex items-center justify-center flex-col ">
               <div className="flex justify-center items-center">
                 <svg
                   className="mr-2"
@@ -110,36 +112,43 @@ const [sectionOpen, setSectionOpen] = useState('')
                 style={{
                   paddingTop: 3,
                   borderRadius: "9px",
-                  backgroundColor: "#f5f5f7",
+                  backgroundColor: "#f5f5f7",opacity:0.5
                 }}
               />
-              <div>
+              <div className="">
                 <Link
                   className="text-slate-200 cursor-pointer"
-                  onPress={()=>handleOpen('faqs')}
+                  onPress={() => handleOpen("faqs")}
                 >
                   FAQS
                 </Link>
               </div>
-              <div>
+              <div className="mt-2">
                 <Link
                   className="text-slate-200 cursor-pointer"
-                  onPress={()=>handleOpen('about')}
+                  onPress={() => handleOpen("about")}
                 >
                   About Argentina
                 </Link>
               </div>
-              <div>
+              <div className="mt-2">
                 <Link
                   className="text-slate-200 cursor-pointer"
-                  onPress={()=>handleOpen('form')}
+                  onPress={() => handleOpen("form")}
                 >
                   Plan your trip!
                 </Link>
               </div>
             </div>
-
-            <div className="flex items-start justify-center flex-col  ">
+            <Divider
+                className="mb-2"
+                style={{
+                  paddingTop: 3,
+                  borderRadius: "9px",
+                  backgroundColor: "#f5f5f7",marginTop:'20px',opacity:0.5
+                }}
+              />
+            <div className="flex items-center justify-center flex-col ">
               <div className="flex justify-start items-center">
                 <svg
                   className="mr-2"
@@ -168,10 +177,32 @@ const [sectionOpen, setSectionOpen] = useState('')
                 style={{
                   paddingTop: 3,
                   borderRadius: "9px",
-                  backgroundColor: "#f5f5f7",
+                  backgroundColor: "#f5f5f7",opacity:0.5
                 }}
               />
-              <div className="mt-1">
+                        <div className="mt-2">
+                <Link
+                  className="text-slate-200 cursor-pointer"
+                  anchorIcon={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M16.6002 5.82C15.9166 5.03962 15.5399 4.03743 15.5402 3H12.4502V15.4C12.4263 16.071 12.143 16.7066 11.6599 17.1729C11.1768 17.6393 10.5316 17.8999 9.86016 17.9C8.44016 17.9 7.26016 16.74 7.26016 15.3C7.26016 13.58 8.92016 12.29 10.6302 12.82V9.66C7.18016 9.2 4.16016 11.88 4.16016 15.3C4.16016 18.63 6.92016 21 9.85016 21C12.9902 21 15.5402 18.45 15.5402 15.3V9.01C16.7932 9.90985 18.2975 10.3926 19.8402 10.39V7.3C19.8402 7.3 17.9602 7.39 16.6002 5.82Z"
+                        fill="white"
+                      />
+                    </svg>
+                  }
+                  showAnchorIcon
+                >
+                  TikTok
+                </Link>
+              </div>
+              <div className="mt-2">
                 <Link
                   showAnchorIcon
                   className="text-slate-200 cursor-pointer"
@@ -194,7 +225,7 @@ const [sectionOpen, setSectionOpen] = useState('')
                   Whatsapp
                 </Link>
               </div>
-              <div className="mt-1">
+              <div className="mt-2">
                 <Link
                   showAnchorIcon
                   className="text-slate-200 cursor-pointer"
@@ -217,56 +248,46 @@ const [sectionOpen, setSectionOpen] = useState('')
                   Instagram
                 </Link>
               </div>
-              <div className="mt-1">
+    
+              <div className="my-2">
                 <Link
                   className="text-slate-200 cursor-pointer"
                   anchorIcon={
                     <svg
+                      className="ml-1"
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
                     >
-                      <path
-                        d="M16.6002 5.82C15.9166 5.03962 15.5399 4.03743 15.5402 3H12.4502V15.4C12.4263 16.071 12.143 16.7066 11.6599 17.1729C11.1768 17.6393 10.5316 17.8999 9.86016 17.9C8.44016 17.9 7.26016 16.74 7.26016 15.3C7.26016 13.58 8.92016 12.29 10.6302 12.82V9.66C7.18016 9.2 4.16016 11.88 4.16016 15.3C4.16016 18.63 6.92016 21 9.85016 21C12.9902 21 15.5402 18.45 15.5402 15.3V9.01C16.7932 9.90985 18.2975 10.3926 19.8402 10.39V7.3C19.8402 7.3 17.9602 7.39 16.6002 5.82Z"
-                        fill="white"
-                      />
+                      <g clip-path="url(#clip0_233_15)">
+                        <path
+                          d="M22 7.535V17C22 17.7652 21.7077 18.5015 21.1827 19.0583C20.6578 19.615 19.9399 19.9501 19.176 19.995L19 20H5C4.23479 20 3.49849 19.7077 2.94174 19.1827C2.38499 18.6578 2.04989 17.9399 2.005 17.176L2 17V7.535L11.445 13.832L11.561 13.898C11.6977 13.9648 11.8478 13.9995 12 13.9995C12.1522 13.9995 12.3023 13.9648 12.439 13.898L12.555 13.832L22 7.535Z"
+                          fill="white"
+                        />
+                        <path
+                          d="M18.9998 4C20.0798 4 21.0268 4.57 21.5548 5.427L11.9998 11.797L2.44482 5.427C2.69555 5.01977 3.04004 4.6784 3.44953 4.43138C3.85903 4.18436 4.32166 4.03886 4.79882 4.007L4.99982 4H18.9998Z"
+                          fill="white"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_233_15">
+                          <rect width="24" height="24" fill="white" />
+                        </clipPath>
+                      </defs>
                     </svg>
                   }
                   showAnchorIcon
                 >
-                  TikTok
-                </Link>
-              </div>
-              <div className="my-1">
-                <Link
-                  className="text-slate-200 cursor-pointer"
-                  anchorIcon={
-                    <svg 
-                    className="ml-1"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <g clip-path="url(#clip0_233_15)">
-                      <path d="M22 7.535V17C22 17.7652 21.7077 18.5015 21.1827 19.0583C20.6578 19.615 19.9399 19.9501 19.176 19.995L19 20H5C4.23479 20 3.49849 19.7077 2.94174 19.1827C2.38499 18.6578 2.04989 17.9399 2.005 17.176L2 17V7.535L11.445 13.832L11.561 13.898C11.6977 13.9648 11.8478 13.9995 12 13.9995C12.1522 13.9995 12.3023 13.9648 12.439 13.898L12.555 13.832L22 7.535Z" fill="white"/>
-                      <path d="M18.9998 4C20.0798 4 21.0268 4.57 21.5548 5.427L11.9998 11.797L2.44482 5.427C2.69555 5.01977 3.04004 4.6784 3.44953 4.43138C3.85903 4.18436 4.32166 4.03886 4.79882 4.007L4.99982 4H18.9998Z" fill="white"/>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_233_15">
-                        <rect width="24" height="24" fill="white"/>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                  }
-                  showAnchorIcon
-                >
-guintitravel@gmail.com
+                  guintitravel@gmail.com
                 </Link>
               </div>
             </div>
           </div>
         </Card>
         <div className="flex flex-col items-center my-5 w-screen">
-          <div style={{width:'500px'}}>
+          <div style={{width:isMobile?'90%':'500px'}}>
             <Input
               key={"secondary"}
               type="email"
@@ -290,9 +311,10 @@ guintitravel@gmail.com
             border: "2px solid #FFF",
             borderRadius: "100px",
             padding: 20,
+            marginBottom:'40px',marginRight:isMobile? '5px':0,marginLeft:isMobile? '5px':0
           }}
         >
-          <p className="font-poppins text-white" style={{ fontSize: "18px" }}>
+          <p className="font-poppins text-white" style={{ fontSize: isMobile ?"10px" :'18px' }}>
             ALL RIGHTS RESERVED © 2023
           </p>
           <Divider
@@ -302,7 +324,7 @@ guintitravel@gmail.com
           />
           <p
             className="font-poppins text-white px-2"
-            style={{ fontSize: "18px" }}
+            style={{ fontSize: isMobile ?"10px" :'18px' }}
           >
             GUINTI LLC{" "}
           </p>
@@ -313,7 +335,7 @@ guintitravel@gmail.com
           />
           <p
             className="font-poppins text-white px-2 cursor-pointer"
-            style={{ fontSize: "18px" }}
+            style={{ fontSize: isMobile ?"10px" :'18px' }}
             onClick={()=>handleOpen('privacy')}
           >
             PRIVACY POLICY
@@ -321,7 +343,7 @@ guintitravel@gmail.com
 
           <p
             className="font-poppins text-white px-2 cursor-pointer"
-            style={{ fontSize: "18px" }}
+            style={{ fontSize: isMobile ?"10px" :'18px' }}
             onClick={()=>handleOpen('terms')}
           >
             TERMS AND CONDITIONS
