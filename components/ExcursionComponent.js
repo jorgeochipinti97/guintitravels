@@ -8,7 +8,7 @@ import { ModalExcursionComponent } from "./UI/ModalExcursionComponent";
 export const ExcursionComponent = ({e}) => {
     const isMobile = useIsMobile();
     const [ref, inView] = useInView({
-        threshold:0.7
+        threshold:0.3
     });
 
 
