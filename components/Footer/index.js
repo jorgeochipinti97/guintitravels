@@ -128,6 +128,14 @@ export const FooterComponent = () => {
                   className="text-slate-200 cursor-pointer"
                   onPress={() => handleOpen("about")}
                 >
+                  About Us
+                </Link>
+              </div>
+              <div className="mt-2">
+                <Link
+                  className="text-slate-200 cursor-pointer"
+                  onPress={() => handleOpen("argentina")}
+                >
                   About Argentina
                 </Link>
               </div>

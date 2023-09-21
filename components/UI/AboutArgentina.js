@@ -1,7 +1,7 @@
 import { Button, Image } from '@nextui-org/react'
 import React from 'react'
 
-export const AboutArgentina = ({onModalClose}) => {
+export const AboutUs = ({onModalClose}) => {
   return (
 <>
 <Image src="/amigos.png" width={"100%"} alt='imagen de argentina'/>
