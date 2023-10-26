@@ -331,17 +331,6 @@ export const FooterComponent = () => {
             orientation="vertical"
           />
           <p
-            className="font-poppins text-white px-2"
-            style={{ fontSize: isMobile ?"10px" :'18px' }}
-          >
-            GUINTI LLC{" "}
-          </p>
-          <Divider
-            className="mx-2"
-            style={{ backgroundColor: "white" }}
-            orientation="vertical"
-          />
-          <p
             className="font-poppins text-white px-2 cursor-pointer"
             style={{ fontSize: isMobile ?"10px" :'18px' }}
             onClick={()=>handleOpen('privacy')}
